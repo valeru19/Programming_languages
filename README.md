@@ -233,4 +233,78 @@ $ ./translator
 
 ## ⚖️ Лицензия
 Этот проект распространяется под лицензией **MIT**. Подробности см. в файле [LICENSE](LICENSE).
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex & Yacc Примеры</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Примеры Lex & Yacc</h1>
+        <div class="section">
+            <h2>1. Генератор лексических анализаторов</h2>
+            <p>Простая программа для анализа арифметических выражений.</p>
+            <pre>
+[0-9]+    { printf("NUMBER: %s\n", yytext); }
+"+"       { printf("PLUS\n"); }
+            </pre>
+        </div>
+        <div class="section">
+            <h2>2. Грамматика для вычисления выражений</h2>
+            <p>Использует Yacc для вычисления арифметических выражений.</p>
+            <pre>
+exp: exp '+' factor { $$ = $1 + $3; }
+            </pre>
+        </div>
+        <div class="section">
+            <h2>3. Трансляция в постфиксную запись</h2>
+            <p>Парсер переводит выражение из инфиксной в постфиксную нотацию.</p>
+            <pre>
+exp: exp '+' term { printf("+ "); }
+            </pre>
+        </div>
+        <div class="footer">
+            <p>Лицензия: MIT</p>
+        </div>
+    </div>
+</body>
+</html>
 
